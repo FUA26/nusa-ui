@@ -9,7 +9,7 @@
       "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
-          "path": "registry/new-york/lib/utils.ts",
+          "path": "registry/lib/utils.ts",
           "type": "registry:lib"
         }
       ]
@@ -23,7 +23,7 @@
       "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
       "files": [
         {
-          "path": "registry/new-york/ui/button.tsx",
+          "path": "registry/ui/button.tsx",
           "type": "registry:ui"
         }
       ]

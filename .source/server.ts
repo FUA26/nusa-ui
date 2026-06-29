@@ -1,1 +1,55 @@
-// @ts-nocheck import * as __fd_glob_17 from "../content/docs/components/checkbox.mdx?collection=docs" import * as __fd_glob_16 from "../content/docs/components/card.mdx?collection=docs" import * as __fd_glob_15 from "../content/docs/components/button.mdx?collection=docs" import * as __fd_glob_14 from "../content/docs/components/alert.mdx?collection=docs" import * as __fd_glob_13 from "../content/docs/components/accordion.mdx?collection=docs" import * as __fd_glob_12 from "../content/docs/blocks/signup-form.mdx?collection=docs" import * as __fd_glob_11 from "../content/docs/blocks/signin-form.mdx?collection=docs" import * as __fd_glob_10 from "../content/docs/blocks/reset-password-form.mdx?collection=docs" import * as __fd_glob_9 from "../content/docs/blocks/forgot-password-form.mdx?collection=docs" import * as __fd_glob_8 from "../content/docs/(root)/styling.mdx?collection=docs" import * as __fd_glob_7 from "../content/docs/(root)/mcp.mdx?collection=docs" import * as __fd_glob_6 from "../content/docs/(root)/index.mdx?collection=docs" import * as __fd_glob_5 from "../content/docs/(root)/get-started.mdx?collection=docs" import * as __fd_glob_4 from "../content/docs/(root)/components.mdx?collection=docs" import * as __fd_glob_3 from "../content/docs/(root)/blocks.mdx?collection=docs" import { default as __fd_glob_2 } from "../content/docs/components/meta.json?collection=docs" import { default as __fd_glob_1 } from "../content/docs/blocks/meta.json?collection=docs" import { default as __fd_glob_0 } from "../content/docs/(root)/meta.json?collection=docs" import { server } from "fumadocs-mdx/runtime/server" import type * as Config from "../source.config"  const create = server<   typeof Config,   import("fumadocs-mdx/runtime/types").InternalTypeConfig & {     DocData: {}   } >({ doc: { passthroughs: ["extractedReferences"] } })  export const docs = await create.docs(   "docs",   "content/docs",   {     "(root)/meta.json": __fd_glob_0,     "blocks/meta.json": __fd_glob_1,     "components/meta.json": __fd_glob_2,   },   {     "(root)/blocks.mdx": __fd_glob_3,     "(root)/components.mdx": __fd_glob_4,     "(root)/get-started.mdx": __fd_glob_5,     "(root)/index.mdx": __fd_glob_6,     "(root)/mcp.mdx": __fd_glob_7,     "(root)/styling.mdx": __fd_glob_8,     "blocks/forgot-password-form.mdx": __fd_glob_9,     "blocks/reset-password-form.mdx": __fd_glob_10,     "blocks/signin-form.mdx": __fd_glob_11,     "blocks/signup-form.mdx": __fd_glob_12,     "components/accordion.mdx": __fd_glob_13,     "components/alert.mdx": __fd_glob_14,     "components/button.mdx": __fd_glob_15,     "components/card.mdx": __fd_glob_16,     "components/checkbox.mdx": __fd_glob_17,   } )
+// @ts-nocheck
+import * as __fd_glob_17 from "../content/docs/blocks/signup-form.mdx?collection=docs"
+import * as __fd_glob_16 from "../content/docs/blocks/signin-form.mdx?collection=docs"
+import * as __fd_glob_15 from "../content/docs/blocks/reset-password-form.mdx?collection=docs"
+import * as __fd_glob_14 from "../content/docs/blocks/forgot-password-form.mdx?collection=docs"
+import * as __fd_glob_13 from "../content/docs/components/checkbox.mdx?collection=docs"
+import * as __fd_glob_12 from "../content/docs/components/card.mdx?collection=docs"
+import * as __fd_glob_11 from "../content/docs/components/button.mdx?collection=docs"
+import * as __fd_glob_10 from "../content/docs/components/alert.mdx?collection=docs"
+import * as __fd_glob_9 from "../content/docs/components/accordion.mdx?collection=docs"
+import * as __fd_glob_8 from "../content/docs/(root)/styling.mdx?collection=docs"
+import * as __fd_glob_7 from "../content/docs/(root)/mcp.mdx?collection=docs"
+import * as __fd_glob_6 from "../content/docs/(root)/index.mdx?collection=docs"
+import * as __fd_glob_5 from "../content/docs/(root)/get-started.mdx?collection=docs"
+import * as __fd_glob_4 from "../content/docs/(root)/components.mdx?collection=docs"
+import * as __fd_glob_3 from "../content/docs/(root)/blocks.mdx?collection=docs"
+import { default as __fd_glob_2 } from "../content/docs/components/meta.json?collection=docs"
+import { default as __fd_glob_1 } from "../content/docs/blocks/meta.json?collection=docs"
+import { default as __fd_glob_0 } from "../content/docs/(root)/meta.json?collection=docs"
+import { server } from "fumadocs-mdx/runtime/server"
+import type * as Config from "../source.config"
+
+const create = server<
+  typeof Config,
+  import("fumadocs-mdx/runtime/types").InternalTypeConfig & {
+    DocData: {}
+  }
+>({ doc: { passthroughs: ["extractedReferences"] } })
+
+export const docs = await create.docs(
+  "docs",
+  "content/docs",
+  {
+    "(root)/meta.json": __fd_glob_0,
+    "blocks/meta.json": __fd_glob_1,
+    "components/meta.json": __fd_glob_2,
+  },
+  {
+    "(root)/blocks.mdx": __fd_glob_3,
+    "(root)/components.mdx": __fd_glob_4,
+    "(root)/get-started.mdx": __fd_glob_5,
+    "(root)/index.mdx": __fd_glob_6,
+    "(root)/mcp.mdx": __fd_glob_7,
+    "(root)/styling.mdx": __fd_glob_8,
+    "components/accordion.mdx": __fd_glob_9,
+    "components/alert.mdx": __fd_glob_10,
+    "components/button.mdx": __fd_glob_11,
+    "components/card.mdx": __fd_glob_12,
+    "components/checkbox.mdx": __fd_glob_13,
+    "blocks/forgot-password-form.mdx": __fd_glob_14,
+    "blocks/reset-password-form.mdx": __fd_glob_15,
+    "blocks/signin-form.mdx": __fd_glob_16,
+    "blocks/signup-form.mdx": __fd_glob_17,
+  }
+)
