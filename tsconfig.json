@@ -24,10 +24,11 @@
   },
   "include": [
     "next-env.d.ts",
-    "next.config.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.mts",
+    ".next/types/**/*.d.ts",
+    ".next/dev/types/**/*.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
