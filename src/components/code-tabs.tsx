@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { Tabs } from "@/components/ui/tabs"
 
-const INSTALL_TYPE_KEY = "nessra-ui-install-type"
+const INSTALL_TYPE_KEY = "nusa-ui-install-type"
 
 export function CodeTabs({ children }: React.ComponentProps<typeof Tabs>) {
   const [installationType, setInstallationType] = React.useState<

@@ -14,12 +14,12 @@
   "rtl": false,
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "utils": "registry/new-york/lib/utils",
+    "ui": "registry/new-york/ui",
+    "lib": "registry/new-york/lib",
+    "hooks": "registry/new-york/hooks"
   },
-  "menuColor": "default",
-  "menuAccent": "subtle",
-  "registries": {}
+  "registries": {
+    "@nusa-ui": "https://nusa-ui.vercel.app/r/{name}.json"
+  }
 }
