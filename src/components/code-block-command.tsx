@@ -4,12 +4,7 @@ import * as React from "react"
 import { Check, Copy, Terminal } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "fumadocs-ui/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { copyToClipboardWithMeta } from "./copy-button"
 

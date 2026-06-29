@@ -2,12 +2,7 @@
 
 import * as React from "react"
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "fumadocs-ui/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const INSTALL_TYPE_KEY = "nusa-ui-install-type"
 
@@ -38,7 +33,7 @@ export function CodeTabs({ children }: React.ComponentProps<typeof Tabs>) {
 
   if (!mounted) {
     return (
-      <Tabs defaultValue="pnpm" className="relative mt-6 w-full gap-4">
+      <Tabs value="pnpm" className="relative mt-6 w-full gap-4">
         {children}
       </Tabs>
     )

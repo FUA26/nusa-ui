@@ -1,4 +1,4 @@
-﻿import * as React from "react"
+import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import defaultMdxComponents from "fumadocs-ui/mdx"
@@ -6,15 +6,12 @@ import type { MDXComponents } from "mdx/types"
 
 import { BlocksGrid } from "@/components/blocks-grid"
 import { CodeBlockCommand } from "@/components/code-block-command"
+import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { CodeTabs } from "@/components/code-tabs"
 import { ComponentsGrid } from "@/components/components-grid"
 import { CopyButton } from "@/components/copy-button"
 import { cn } from "@/lib/utils"
-import {
-  TabsContent as FumadocsTabsContent,
-  TabsList as FumadocsTabsList,
-  TabsTrigger as FumadocsTabsTrigger,
-} from "fumadocs-ui/components/tabs"
+import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -56,6 +53,24 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
+    h5: ({ className, ...props }: React.ComponentProps<"h5">) => (
+      <h5
+        className={cn(
+          "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+          className
+        )}
+        {...props}
+      />
+    ),
+    h6: ({ className, ...props }: React.ComponentProps<"h6">) => (
+      <h6
+        className={cn(
+          "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+          className
+        )}
+        {...props}
+      />
+    ),
     a: ({ className, ...props }: React.ComponentProps<"a">) => (
       <a
         className={cn("font-medium underline underline-offset-4", className)}
@@ -79,6 +94,22 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ),
     li: ({ className, ...props }: React.ComponentProps<"li">) => (
       <li className={cn("mt-2", className)} {...props} />
+    ),
+    blockquote: ({
+      className,
+      ...props
+    }: React.ComponentProps<"blockquote">) => (
+      <blockquote
+        className={cn("mt-6 border-l-2 pl-6 italic", className)}
+        {...props}
+      />
+    ),
+    img: ({ className, alt, ...props }: React.ComponentProps<"img">) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img className={cn("rounded-md", className)} alt={alt} {...props} />
+    ),
+    hr: ({ ...props }: React.ComponentProps<"hr">) => (
+      <hr className="my-4 md:my-8" {...props} />
     ),
     table: ({ className, ...props }: React.ComponentProps<"table">) => (
       <div className="no-scrollbar my-6 w-full overflow-y-auto rounded-lg border">
@@ -113,15 +144,20 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       />
     ),
     pre: ({ className, children, ...props }: React.ComponentProps<"pre">) => (
-      <pre
-        className={cn(
-          "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-data-highlighted-line:px-0 has-data-line-numbers:px-0 has-data-[slot=tabs]:p-0",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </pre>
+      <CodeCollapsibleWrapper>
+        <pre
+          className={cn(
+            "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </pre>
+      </CodeCollapsibleWrapper>
+    ),
+    figure: ({ className, ...props }: React.ComponentProps<"figure">) => (
+      <figure className={cn(className)} {...props} />
     ),
     figcaption: ({
       className,
@@ -186,6 +222,21 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         </>
       )
     },
+    Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
+      <h3
+        className={cn(
+          "mt-8 scroll-m-32 font-heading text-xl font-normal tracking-tight",
+          className
+        )}
+        {...props}
+      />
+    ),
+    Steps: ({ ...props }) => (
+      <div
+        className="steps [&>h3]:step mb-12 [counter-reset:step] *:[h3]:first:mt-0!"
+        {...props}
+      />
+    ),
     Image: ({
       src,
       className,
@@ -203,30 +254,24 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-      <Link
-        className={cn("font-medium underline underline-offset-4", className)}
-        {...props}
-      />
-    ),
-    Tabs: CodeTabs,
-    TabsList: ({
-      className,
-      ...props
-    }: React.ComponentProps<typeof FumadocsTabsList>) => (
-      <FumadocsTabsList className={className} {...props} />
-    ),
     TabsTrigger: ({
       className,
       ...props
-    }: React.ComponentProps<typeof FumadocsTabsTrigger>) => (
-      <FumadocsTabsTrigger className={className} {...props} />
+    }: React.ComponentProps<typeof TabsTrigger>) => (
+      <TabsTrigger className={className} {...props} />
     ),
-    TabsContent: ({
+    TabsList: ({
+      className,
+      variant = "underline",
+      ...props
+    }: React.ComponentProps<typeof TabsList> & {
+      variant?: "default" | "underline"
+    }) => <TabsList variant={variant} className={className} {...props} />,
+    TabsPanel: ({
       className,
       ...props
-    }: React.ComponentProps<typeof FumadocsTabsContent>) => (
-      <FumadocsTabsContent
+    }: React.ComponentProps<typeof TabsContent>) => (
+      <TabsContent
         className={cn(
           "relative [&_h3.font-heading]:text-base *:[figure]:first:mt-0 [&>.steps]:mt-6",
           className
@@ -234,7 +279,26 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    ComponentsGrid,
+    TabsContent: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof TabsContent>) => (
+      <TabsContent
+        className={cn(
+          "relative [&_h3.font-heading]:text-base *:[figure]:first:mt-0 [&>.steps]:mt-6",
+          className
+        )}
+        {...props}
+      />
+    ),
     BlocksGrid,
+    ComponentsGrid,
+    CodeTabs,
+    Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
+      <Link
+        className={cn("font-medium underline underline-offset-4", className)}
+        {...props}
+      />
+    ),
   }
 }
