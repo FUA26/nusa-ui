@@ -1,0 +1,55 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from.
+---
+
+<ComponentPreview name="select-demo" />
+
+## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/select.json
+```
+
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Install `@radix-ui/react-select`.</Step>
+      <ComponentSource name="select" title="components/ui/select.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="select-demo" />
+
+### With Groups
+
+<ComponentPreview name="select-with-groups" />
+
+### With Placeholder
+
+<ComponentPreview name="select-with-placeholder" />

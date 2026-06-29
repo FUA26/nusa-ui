@@ -1,0 +1,49 @@
+---
+title: Switch
+description: A control that allows the user to toggle between on and off.
+---
+
+<ComponentPreview name="switch-demo" />
+
+## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/switch.json
+```
+
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Install `@radix-ui/react-switch`.</Step>
+      <ComponentSource name="switch" title="components/ui/switch.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch"
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="switch-demo" />
+
+### With Label
+
+<ComponentPreview name="switch-with-label" />
+
+### Disabled
+
+<ComponentPreview name="switch-disabled" />

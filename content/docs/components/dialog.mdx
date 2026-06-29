@@ -1,0 +1,53 @@
+---
+title: Dialog
+description: A window overlaid on the primary window.
+---
+
+<ComponentPreview name="dialog-demo" />
+
+## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/dialog.json
+```
+
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Install `@radix-ui/react-dialog`.</Step>
+      <ComponentSource name="dialog" title="components/ui/dialog.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+```
+
+## Examples
+
+### Demo
+
+<ComponentPreview name="dialog-demo" />
+
+### Basic
+
+<ComponentPreview name="dialog-basic" />
