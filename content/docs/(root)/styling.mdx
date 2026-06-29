@@ -1,0 +1,19 @@
+﻿---
+title: Styling
+description: Theme tokens and styling guidance for Nusa UI.
+---
+
+Nusa UI uses Tailwind CSS v4 with semantic tokens. Prefer foreground, background, border, and muted variables over raw palette values.
+
+## Tokens
+
+- `bg-background` and `text-foreground` for page surfaces
+- `bg-card` and `text-card-foreground` for panels
+- `text-muted-foreground` for secondary copy
+- `border-border` for structural borders
+
+## Rules
+
+- Use `gap-*` instead of `space-*`
+- Use `size-*` when width and height match
+- Use `cn()` for conditional Tailwind class merging

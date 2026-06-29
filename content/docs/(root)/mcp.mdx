@@ -1,0 +1,54 @@
+﻿---
+title: MCP Integration
+description: Use Nusa UI components with AI assistants via Model Context Protocol.
+---
+
+## What is MCP?
+
+Model Context Protocol connects AI assistants to component registries so you can install Nusa UI components using natural language.
+
+## Setup
+
+### 1. Configure MCP Server
+
+Create `.mcp.json` in your project root:
+
+```json title=".mcp.json"
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    }
+  }
+}
+```
+
+### 2. Add Nusa UI Registry
+
+Configure the registry in your `components.json`:
+
+```json title="components.json"
+{
+  "$schema": "https://shadcn.com/schema.json",
+  "registries": {
+    "@nusa-ui": "https://nusa-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+## Usage
+
+Ask your assistant to install components naturally:
+
+- "Add the button component from @nusa-ui"
+- "Install @nusa-ui/card"
+- "Add a date picker from @nusa-ui"
+
+## Without MCP
+
+You can always install components directly:
+
+```bash
+npx shadcn@latest add @nusa-ui/button
+```
