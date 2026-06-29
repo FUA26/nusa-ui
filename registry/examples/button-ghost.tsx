@@ -1,5 +1,5 @@
-﻿import { Button } from "@/components/ui/button"
+import { Button } from "@/registry/ui/button"
 
-export function ButtonGhost() {
+export default function ButtonGhost() {
   return <Button variant="ghost">Ghost</Button>
 }

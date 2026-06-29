@@ -1,5 +1,5 @@
-﻿import { Button } from "@/components/ui/button"
+import { Button } from "@/registry/ui/button"
 
-export function ButtonOutline() {
+export default function ButtonOutline() {
   return <Button variant="outline">Outline</Button>
 }
