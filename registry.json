@@ -23,7 +23,7 @@
       "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
       "files": [
         {
-          "path": "registry/ui/button.tsx",
+          "path": "registry/new-york/ui/button.tsx",
           "type": "registry:ui"
         }
       ]
