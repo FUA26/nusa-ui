@@ -1,21 +1,47 @@
-# Next.js template
+﻿# Nusa UI
 
-This is a Next.js template with shadcn/ui.
+Nusa UI is a source-first design system and documentation shell built for teams that want polished components without losing ownership of the code.
 
-## Adding components
+It combines:
 
-To add components to your app, run the following command:
+- a shadcn-compatible registry
+- Fumadocs-powered documentation
+- MDX examples and component previews
+- brand-aware metadata, icons, and install flow
+
+## Getting Started
+
+Install dependencies and start the development server:
 
 ```bash
-npx shadcn@latest add button
+pnpm install
+pnpm dev
 ```
 
-This will place the ui components in the `components` directory.
+## Registry
 
-## Using components
+Add components from the registry with the shadcn CLI:
 
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/button.json
 ```
+
+You can also validate and build the registry locally:
+
+```bash
+pnpm registry:validate
+pnpm registry:build
+```
+
+## Documentation
+
+The docs site includes:
+
+- component pages
+- installation instructions
+- MDX previews and source blocks
+- search, OG images, and LLM export routes
+
+## License
+
+Private repository for internal product development.
