@@ -1,0 +1,71 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+
+links:
+  doc: https://ui.shadcn.com/docs/components/badge
+  api: https://www.radix-ui.com/primitives/docs/utilities/slot
+---
+
+<ComponentPreview name="badge-demo" />
+
+## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/badge.json
+```
+
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Copy the component source into your project.</Step>
+      <ComponentSource name="badge" title="components/ui/badge.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+export function BadgeExample() {
+  return <Badge>Badge</Badge>
+}
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="badge-default" />
+
+### Secondary
+
+<ComponentPreview name="badge-secondary" />
+
+### Destructive
+
+<ComponentPreview name="badge-destructive" />
+
+### Outline
+
+<ComponentPreview name="badge-outline" />
+
+### With Icon
+
+<ComponentPreview name="badge-with-icon" />
+
+## API Reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline"` | `"default"` | Visual style of the badge. |
