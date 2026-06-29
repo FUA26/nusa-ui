@@ -4,12 +4,14 @@ import Link from "next/link"
 import defaultMdxComponents from "fumadocs-ui/mdx"
 import type { MDXComponents } from "mdx/types"
 
+import { cn } from "@/lib/utils"
 import { BlocksGrid } from "@/components/blocks-grid"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeTabs } from "@/components/code-tabs"
+import { ComponentPreview } from "@/components/component-preview"
+import { ComponentSource } from "@/components/component-source"
 import { ComponentsGrid } from "@/components/components-grid"
 import { CopyButton } from "@/components/copy-button"
-import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -145,7 +147,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     pre: ({ className, children, ...props }: React.ComponentProps<"pre">) => (
       <pre
         className={cn(
-          "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
+          "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-data-highlighted-line:px-0 has-data-line-numbers:px-0 has-data-[slot=tabs]:p-0",
           className
         )}
         {...props}
@@ -276,19 +278,9 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    TabsContent: ({
-      className,
-      ...props
-    }: React.ComponentProps<typeof TabsContent>) => (
-      <TabsContent
-        className={cn(
-          "relative [&_h3.font-heading]:text-base *:[figure]:first:mt-0 [&>.steps]:mt-6",
-          className
-        )}
-        {...props}
-      />
-    ),
     BlocksGrid,
+    ComponentPreview,
+    ComponentSource,
     ComponentsGrid,
     CodeTabs,
     Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
