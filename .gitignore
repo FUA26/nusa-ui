@@ -1,4 +1,4 @@
-# dependencies
+﻿# dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,6 +10,7 @@
 
 # testing
 /coverage
+/docs
 
 /ref
 # next.js
@@ -36,3 +37,7 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated docs source
+/.source/
+
