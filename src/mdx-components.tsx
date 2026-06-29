@@ -1,11 +1,10 @@
-import * as React from "react"
+﻿import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import defaultMdxComponents from "fumadocs-ui/mdx"
 import type { MDXComponents } from "mdx/types"
 
 import { cn } from "@/lib/utils"
-import { BlocksGrid } from "@/components/blocks-grid"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeTabs } from "@/components/code-tabs"
 import { ComponentPreview } from "@/components/component-preview"
@@ -278,7 +277,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    BlocksGrid,
     ComponentPreview,
     ComponentSource,
     ComponentsGrid,
