@@ -1,16 +1,29 @@
-﻿---
+---
 title: Accordion
-description: Collapsible content sections.
+description: A vertically stacked set of interactive headings.
 ---
 
+<ComponentPreview name="accordion-demo" />
+
 ## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
 
 ```bash
 npx shadcn@latest add https://nusa-ui.vercel.app/r/accordion.json
 ```
 
-## Usage
-
-```tsx
-import { Accordion } from "@/components/ui/accordion"
-```
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Install `@radix-ui/react-accordion`.</Step>
+      <ComponentSource name="accordion" title="components/ui/accordion.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
