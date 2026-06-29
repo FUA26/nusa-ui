@@ -6,7 +6,6 @@ import type { MDXComponents } from "mdx/types"
 
 import { BlocksGrid } from "@/components/blocks-grid"
 import { CodeBlockCommand } from "@/components/code-block-command"
-import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { CodeTabs } from "@/components/code-tabs"
 import { ComponentsGrid } from "@/components/components-grid"
 import { CopyButton } from "@/components/copy-button"
@@ -144,17 +143,15 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       />
     ),
     pre: ({ className, children, ...props }: React.ComponentProps<"pre">) => (
-      <CodeCollapsibleWrapper>
-        <pre
-          className={cn(
-            "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
-            className
-          )}
-          {...props}
-        >
-          {children}
-        </pre>
-      </CodeCollapsibleWrapper>
+      <pre
+        className={cn(
+          "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </pre>
     ),
     figure: ({ className, ...props }: React.ComponentProps<"figure">) => (
       <figure className={cn(className)} {...props} />
