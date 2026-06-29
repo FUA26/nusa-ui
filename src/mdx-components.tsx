@@ -11,7 +11,7 @@ import { CodeTabs } from "@/components/code-tabs"
 import { ComponentsGrid } from "@/components/components-grid"
 import { CopyButton } from "@/components/copy-button"
 import { cn } from "@/lib/utils"
-import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -20,7 +20,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
       <h1
         className={cn(
-          "mt-2 scroll-m-28 font-heading text-3xl font-bold tracking-tight",
+          "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight",
           className
         )}
         {...props}
@@ -29,7 +29,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h2: ({ className, ...props }: React.ComponentProps<"h2">) => (
       <h2
         className={cn(
-          "mt-10 scroll-m-28 font-heading text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:mt-0! [&+.steps>h3]:mt-4! [&+h3]:mt-6! [&+p]:mt-4!",
+          "font-heading mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:mt-0! [&+.steps>h3]:mt-4! [&+h3]:mt-6! [&+p]:mt-4!",
           className
         )}
         {...props}
@@ -38,7 +38,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h3: ({ className, ...props }: React.ComponentProps<"h3">) => (
       <h3
         className={cn(
-          "mt-12 scroll-m-28 font-heading text-lg font-normal tracking-tight [&+p]:mt-4!",
+          "font-heading mt-12 scroll-m-28 text-lg font-normal tracking-tight [&+p]:mt-4!",
           className
         )}
         {...props}
@@ -47,7 +47,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h4: ({ className, ...props }: React.ComponentProps<"h4">) => (
       <h4
         className={cn(
-          "mt-8 scroll-m-28 font-heading text-base font-medium tracking-tight",
+          "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight",
           className
         )}
         {...props}
@@ -112,7 +112,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <hr className="my-4 md:my-8" {...props} />
     ),
     table: ({ className, ...props }: React.ComponentProps<"table">) => (
-      <div className="no-scrollbar my-6 w-full overflow-y-auto rounded-lg border">
+      <div className="my-6 no-scrollbar w-full overflow-y-auto rounded-lg border">
         <table
           className={cn(
             "relative my-0! w-full overflow-hidden border-none bg-transparent! text-sm [&_tbody_tr:last-child]:border-b-0",
@@ -166,7 +166,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     }: React.ComponentProps<"figcaption">) => (
       <figcaption
         className={cn(
-          "text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70",
+          "flex items-center gap-2 text-code-foreground [&_svg]:size-4 [&_svg]:text-code-foreground [&_svg]:opacity-70",
           className
         )}
         {...props}
@@ -225,7 +225,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
       <h3
         className={cn(
-          "mt-8 scroll-m-32 font-heading text-xl font-normal tracking-tight",
+          "font-heading mt-8 scroll-m-32 text-xl font-normal tracking-tight",
           className
         )}
         {...props}
@@ -233,7 +233,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ),
     Steps: ({ ...props }) => (
       <div
-        className="steps [&>h3]:step mb-12 [counter-reset:step] *:[h3]:first:mt-0!"
+        className="steps mb-12 [counter-reset:step] *:[h3]:first:mt-0! [&>h3]:step"
         {...props}
       />
     ),

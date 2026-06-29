@@ -5,8 +5,7 @@ import { Check, Copy, Terminal } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-import { copyToClipboardWithMeta } from "./copy-button"
+import { copyToClipboardWithMeta } from "@/components/copy-button"
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
 const PM_STORAGE_KEY = "nusa-ui-pm"
@@ -48,15 +47,14 @@ export function CodeBlockCommand({
     }
   }, [hasCopied])
 
-  const tabs = React.useMemo(
-    () => ({
+  const tabs = React.useMemo(() => {
+    return {
       pnpm: __pnpm__,
       npm: __npm__,
       yarn: __yarn__,
       bun: __bun__,
-    }),
-    [__bun__, __npm__, __pnpm__, __yarn__]
-  )
+    }
+  }, [__npm__, __pnpm__, __yarn__, __bun__])
 
   const handleValueChange = (value: string) => {
     const pm = value as PackageManager
@@ -64,19 +62,19 @@ export function CodeBlockCommand({
     localStorage.setItem(PM_STORAGE_KEY, pm)
   }
 
-  const copyCommand = () => {
+  const copyCommand = React.useCallback(() => {
     const command = tabs[packageManager]
     if (!command) return
     copyToClipboardWithMeta(command)
     setHasCopied(true)
-  }
+  }, [packageManager, tabs])
 
   if (!mounted) {
     return (
       <div className="overflow-x-auto">
         <div className="flex items-center gap-2 border-b border-border/50 px-3 py-1">
           <div className="flex size-4 items-center justify-center rounded-[1px] bg-foreground opacity-70">
-            <Terminal className="size-3 text-background" />
+            <Terminal className="size-3 text-code" />
           </div>
           <div className="flex gap-4 font-sans text-sm text-muted-foreground">
             {Object.keys(tabs).map((key) => (
@@ -109,7 +107,7 @@ export function CodeBlockCommand({
       >
         <div className="flex items-center gap-2 border-b border-border/50 px-3 py-1">
           <div className="flex size-4 items-center justify-center rounded-[1px] bg-foreground opacity-70">
-            <Terminal className="size-3 text-background" />
+            <Terminal className="size-3 text-code" />
           </div>
           <TabsList className="rounded-none bg-transparent p-0">
             {Object.entries(tabs).map(([key]) => (
