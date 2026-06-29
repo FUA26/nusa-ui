@@ -53,6 +53,37 @@ function findComponent(registry, name) {
   return registry.items?.find((item) => item.name === name)
 }
 
+/**
+ * Replace brand references in content string
+ * Converts nessra brand references to nusa brand references
+ * @param {string} content - The content to replace brand references in
+ * @returns {string} The content with brand references replaced
+ */
+function replaceBrandReferences(content) {
+  return (
+    content
+      // More specific patterns first (URL patterns)
+      .replace(/nessra\.vercel\.app/g, "nusa-ui.vercel.app")
+      .replace(/nessra-ui\.vercel\.app/g, "nusa-ui.vercel.app")
+
+      // Registry path patterns
+      .replace(/registry\/new-york\//g, "registry/")
+
+      // Logo references
+      .replace(/nessra-ui-logo/g, "nusa-ui-logo")
+
+      // Code/technical references (snake_case, kebab-case)
+      .replace(/nessra_ui/g, "nusa_ui")
+      .replace(/nessra-ui/g, "nusa-ui")
+
+      // Constant/uppercase references
+      .replace(/NESSRA-UI/g, "NUSA-UI")
+
+      // Title case references
+      .replace(/Nessra UI/g, "Nusa UI")
+  )
+}
+
 // Show migration start message
 console.log(`Starting migration for component: ${componentName}`)
 
