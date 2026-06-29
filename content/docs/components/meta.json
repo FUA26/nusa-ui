@@ -1,4 +1,14 @@
-﻿{
+{
   "title": "Components",
-  "pages": ["accordion", "alert", "badge", "button", "card", "checkbox"]
+  "pages": [
+    "accordion",
+    "alert",
+    "badge",
+    "button",
+    "card",
+    "checkbox",
+    "input",
+    "label",
+    "textarea"
+  ]
 }

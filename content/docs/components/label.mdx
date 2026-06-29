@@ -1,0 +1,59 @@
+---
+title: Label
+description: Renders an accessible label associated with controls.
+
+links:
+  doc: https://www.radix-ui.com/primitives/docs/components/label
+  api: https://www.radix-ui.com/primitives/docs/components/label#api-reference
+---
+
+<ComponentPreview name="label-demo" />
+
+## Installation
+
+<CodeTabs>
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add https://nusa-ui.vercel.app/r/label.json
+```
+
+  </TabsPanel>
+  <TabsPanel value="manual">
+    <Steps>
+      <Step>Install `@radix-ui/react-label`.</Step>
+      <ComponentSource name="label" title="components/ui/label.tsx" collapsible={false} />
+      <Step>Update import paths to match your project structure.</Step>
+    </Steps>
+  </TabsPanel>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Label } from "@/components/ui/label"
+
+export function LabelExample() {
+  return <Label htmlFor="email">Email</Label>
+}
+```
+
+## Examples
+
+### With Input
+
+<ComponentPreview name="label-with-input" />
+
+### With Checkbox
+
+<ComponentPreview name="label-with-checkbox" />
+
+## API Reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `htmlFor` | `string` | - | Associates the label with a control. |
