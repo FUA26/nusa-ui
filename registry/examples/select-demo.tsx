@@ -1,4 +1,4 @@
-import {
+﻿import {
   Select,
   SelectContent,
   SelectItem,
@@ -15,6 +15,7 @@ export default function SelectDemo() {
       <SelectContent>
         <SelectItem value="apple">Apple</SelectItem>
         <SelectItem value="banana">Banana</SelectItem>
+        <SelectItem value="orange">Orange</SelectItem>
       </SelectContent>
     </Select>
   )

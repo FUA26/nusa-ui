@@ -1,10 +1,11 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
-import { cn } from "@/registry/lib/utils"
+import { cn } from "@/lib/utils"
 
+// Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
 
 export type ChartConfig = {
@@ -17,14 +18,19 @@ export type ChartConfig = {
   )
 }
 
-type ChartContextProps = { config: ChartConfig }
+type ChartContextProps = {
+  config: ChartConfig
+}
+
 const ChartContext = React.createContext<ChartContextProps | null>(null)
 
 function useChart() {
   const context = React.useContext(ChartContext)
+
   if (!context) {
     throw new Error("useChart must be used within a <ChartContainer />")
   }
+
   return context
 }
 
@@ -67,7 +73,10 @@ function ChartStyle({ id, config }: { id: string; config: ChartConfig }) {
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme || config.color
   )
-  if (!colorConfig.length) return null
+
+  if (!colorConfig.length) {
+    return null
+  }
 
   return (
     <style
@@ -94,44 +103,12 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
-function getPayloadConfigFromPayload(
-  config: ChartConfig,
-  payload: unknown,
-  key: string
-) {
-  if (typeof payload !== "object" || payload === null) return undefined
-
-  const payloadPayload =
-    "payload" in payload &&
-    typeof (payload as any).payload === "object" &&
-    (payload as any).payload !== null
-      ? (payload as any).payload
-      : undefined
-
-  let configLabelKey: string = key
-  if (
-    key in (payload as Record<string, unknown>) &&
-    typeof (payload as Record<string, unknown>)[key] === "string"
-  ) {
-    configLabelKey = (payload as Record<string, unknown>)[key] as string
-  } else if (
-    payloadPayload &&
-    key in payloadPayload &&
-    typeof payloadPayload[key] === "string"
-  ) {
-    configLabelKey = payloadPayload[key] as string
-  }
-
-  return configLabelKey in config
-    ? config[configLabelKey]
-    : config[key as keyof typeof config]
-}
-
 type TooltipPayloadItem = {
   name?: string
   dataKey?: string | number
   value?: number | string
   color?: string
+
   payload?: Record<string, any>
 }
 
@@ -153,6 +130,7 @@ type ChartTooltipContentProps = {
     name: string,
     item: TooltipPayloadItem,
     index: number,
+
     payload: any
   ) => React.ReactNode
   color?: string
@@ -178,7 +156,9 @@ function ChartTooltipContent({
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {
-    if (hideLabel || !payload?.length) return null
+    if (hideLabel || !payload?.length) {
+      return null
+    }
 
     const [item] = payload
     const key = `${labelKey || item?.dataKey || item?.name || "value"}`
@@ -196,7 +176,10 @@ function ChartTooltipContent({
       )
     }
 
-    if (!value) return null
+    if (!value) {
+      return null
+    }
+
     return <div className={cn("font-medium", labelClassName)}>{value}</div>
   }, [
     label,
@@ -208,7 +191,9 @@ function ChartTooltipContent({
     labelKey,
   ])
 
-  if (!active || !payload?.length) return null
+  if (!active || !payload?.length) {
+    return null
+  }
 
   const nestLabel = payload.length === 1 && indicator !== "dot"
 
@@ -316,7 +301,10 @@ function ChartLegendContent({
   nameKey,
 }: ChartLegendContentProps) {
   const { config } = useChart()
-  if (!payload?.length) return null
+
+  if (!payload?.length) {
+    return null
+  }
 
   return (
     <div
@@ -329,6 +317,7 @@ function ChartLegendContent({
       {payload.map((item) => {
         const key = `${nameKey || item.dataKey || "value"}`
         const itemConfig = getPayloadConfigFromPayload(config, item, key)
+
         return (
           <div
             key={item.value}
@@ -341,7 +330,9 @@ function ChartLegendContent({
             ) : (
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
-                style={{ backgroundColor: item.color }}
+                style={{
+                  backgroundColor: item.color,
+                }}
               />
             )}
             {itemConfig?.label}
@@ -350,6 +341,43 @@ function ChartLegendContent({
       })}
     </div>
   )
+}
+
+// Helper to extract item config from a payload.
+function getPayloadConfigFromPayload(
+  config: ChartConfig,
+  payload: unknown,
+  key: string
+) {
+  if (typeof payload !== "object" || payload === null) {
+    return undefined
+  }
+
+  const payloadPayload =
+    "payload" in payload &&
+    typeof payload.payload === "object" &&
+    payload.payload !== null
+      ? payload.payload
+      : undefined
+
+  let configLabelKey: string = key
+
+  if (
+    key in payload &&
+    typeof (payload as Record<string, unknown>)[key] === "string"
+  ) {
+    configLabelKey = (payload as Record<string, unknown>)[key] as string
+  } else if (
+    payloadPayload &&
+    key in payloadPayload &&
+    typeof (payloadPayload as Record<string, unknown>)[key] === "string"
+  ) {
+    configLabelKey = (payloadPayload as Record<string, unknown>)[key] as string
+  }
+
+  return configLabelKey in config
+    ? config[configLabelKey]
+    : config[key as keyof typeof config]
 }
 
 export {

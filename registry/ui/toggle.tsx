@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import * as TogglePrimitive from "@radix-ui/react-toggle"
@@ -21,7 +21,10 @@ const toggleVariants = cva(
         lg: "h-10 min-w-10 px-2.5",
       },
     },
-    defaultVariants: { variant: "default", size: "default" },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   }
 )
 

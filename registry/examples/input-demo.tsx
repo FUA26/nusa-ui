@@ -1,5 +1,5 @@
-import { Input } from "@/registry/ui/input"
+﻿import { Input } from "@/registry/ui/input"
 
 export default function InputDemo() {
-  return <Input type="text" placeholder="Enter your name" />
+  return <Input type="email" placeholder="Email" />
 }

@@ -1,5 +1,5 @@
-import { Input } from "@/registry/ui/input"
+﻿import { Input } from "@/registry/ui/input"
 
 export default function InputDisabled() {
-  return <Input type="text" placeholder="Disabled input" disabled />
+  return <Input disabled placeholder="Disabled" />
 }

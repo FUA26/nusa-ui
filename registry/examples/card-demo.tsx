@@ -1,19 +1,25 @@
-import {
+﻿import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/registry/ui/card"
 
 export default function CardDemo() {
   return (
-    <Card>
+    <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Card title</CardTitle>
-        <CardDescription>Card description</CardDescription>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>Card Description</CardDescription>
       </CardHeader>
-      <CardContent>Card content</CardContent>
+      <CardContent>
+        <p>Card Content</p>
+      </CardContent>
+      <CardFooter>
+        <p>Card Footer</p>
+      </CardFooter>
     </Card>
   )
 }

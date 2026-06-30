@@ -40,6 +40,18 @@ export function ComponentPreview({
     )
   }
 
+  let previewNode: React.ReactNode
+  if (name) {
+    const Preview = previewComponent as React.ComponentType
+    previewNode = (
+      <React.Suspense fallback={null}>
+        <Preview />
+      </React.Suspense>
+    )
+  } else {
+    previewNode = previewComponent as React.ReactNode
+  }
+
   const previewSource =
     source ??
     (name ? <ComponentSource name={name} collapsible={false} /> : null)
@@ -55,7 +67,7 @@ export function ComponentPreview({
       previewClassName={previewClassName}
       align={align}
       hideCode={hideCode}
-      component={previewComponent}
+      component={previewNode}
       source={previewSource}
       sourcePreview={previewSourcePreview}
       chromeLessOnMobile={chromeLessOnMobile}

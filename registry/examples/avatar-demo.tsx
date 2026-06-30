@@ -1,9 +1,10 @@
-import { Avatar, AvatarFallback } from "@/registry/ui/avatar"
+﻿import { Avatar, AvatarFallback, AvatarImage } from "@/registry/ui/avatar"
 
 export default function AvatarDemo() {
   return (
     <Avatar>
-      <AvatarFallback>NU</AvatarFallback>
+      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   )
 }

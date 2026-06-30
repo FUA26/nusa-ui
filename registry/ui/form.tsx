@@ -1,11 +1,12 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 
-import { cn } from "@/registry/lib/utils"
+import { cn } from "@/lib/utils"
 import { Label } from "@/registry/ui/label"
 
+// Context for field state
 interface FormFieldContextValue {
   id: string
   name: string
@@ -22,17 +23,18 @@ function useFormField() {
   return ctx
 }
 
+// Normalize errors to strings (handles Zod error objects, strings, etc.)
 function normalizeErrors(errors: unknown[]): string[] {
   return errors
     .map((e) => {
       if (typeof e === "string") return e
-      if (e && typeof e === "object" && "message" in e)
-        return String((e as { message: unknown }).message)
+      if (e && typeof e === "object" && "message" in e) return String(e.message)
       return String(e)
     })
     .filter(Boolean)
 }
 
+// FormField - Context provider
 function FormField({
   children,
   name,
@@ -72,6 +74,7 @@ function FormField({
   )
 }
 
+// FormLabel - Label with error state
 function FormLabel({
   className,
   ...props
@@ -89,6 +92,7 @@ function FormLabel({
   )
 }
 
+// FormControl - Slot with auto aria-invalid
 function FormControl({ children }: { children: React.ReactElement }) {
   const { id, errors, isTouched } = useFormField()
   const hasError = isTouched && errors.length > 0
@@ -103,6 +107,7 @@ function FormControl({ children }: { children: React.ReactElement }) {
   )
 }
 
+// FormDescription - Help text
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   const { id } = useFormField()
   return (
@@ -115,6 +120,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
+// FormMessage - Error messages
 function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   const { id, errors, isTouched } = useFormField()
   if (!isTouched || errors.length === 0) return null
@@ -131,6 +137,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
+// Form - Form wrapper
 function Form({ className, ...props }: React.ComponentProps<"form">) {
   return (
     <form data-slot="form" className={cn("space-y-6", className)} {...props} />

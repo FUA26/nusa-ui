@@ -1,16 +1,17 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
-import { cn } from "@/registry/lib/utils"
+import { cn } from "@/lib/utils"
 
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
+
 function DropdownMenuPortal({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
@@ -18,6 +19,7 @@ function DropdownMenuPortal({
     <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
   )
 }
+
 function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
@@ -28,6 +30,7 @@ function DropdownMenuTrigger({
     />
   )
 }
+
 function DropdownMenuContent({
   className,
   sideOffset = 4,
@@ -47,6 +50,7 @@ function DropdownMenuContent({
     </DropdownMenuPrimitive.Portal>
   )
 }
+
 function DropdownMenuGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
@@ -54,6 +58,7 @@ function DropdownMenuGroup({
     <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
   )
 }
+
 function DropdownMenuItem({
   className,
   inset,
@@ -76,6 +81,7 @@ function DropdownMenuItem({
     />
   )
 }
+
 function DropdownMenuCheckboxItem({
   className,
   children,
@@ -101,6 +107,7 @@ function DropdownMenuCheckboxItem({
     </DropdownMenuPrimitive.CheckboxItem>
   )
 }
+
 function DropdownMenuRadioGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
@@ -111,6 +118,7 @@ function DropdownMenuRadioGroup({
     />
   )
 }
+
 function DropdownMenuRadioItem({
   className,
   children,
@@ -134,6 +142,7 @@ function DropdownMenuRadioItem({
     </DropdownMenuPrimitive.RadioItem>
   )
 }
+
 function DropdownMenuLabel({
   className,
   inset,
@@ -153,6 +162,7 @@ function DropdownMenuLabel({
     />
   )
 }
+
 function DropdownMenuSeparator({
   className,
   ...props
@@ -165,6 +175,7 @@ function DropdownMenuSeparator({
     />
   )
 }
+
 function DropdownMenuShortcut({
   className,
   ...props
@@ -180,11 +191,13 @@ function DropdownMenuShortcut({
     />
   )
 }
+
 function DropdownMenuSub({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
 }
+
 function DropdownMenuSubTrigger({
   className,
   inset,
@@ -208,6 +221,7 @@ function DropdownMenuSubTrigger({
     </DropdownMenuPrimitive.SubTrigger>
   )
 }
+
 function DropdownMenuSubContent({
   className,
   ...props
@@ -216,24 +230,25 @@ function DropdownMenuSubContent({
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"
       className={cn(
-        "z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+        "z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
         className
       )}
       {...props}
     />
   )
 }
+
 export {
   DropdownMenu,
   DropdownMenuPortal,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuGroup,
+  DropdownMenuLabel,
   DropdownMenuItem,
   DropdownMenuCheckboxItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuSub,

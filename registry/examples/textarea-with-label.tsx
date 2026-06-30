@@ -1,11 +1,11 @@
+﻿import { Label } from "@/registry/ui/label"
 import { Textarea } from "@/registry/ui/textarea"
-import { Label } from "@/registry/ui/label"
 
 export default function TextareaWithLabel() {
   return (
-    <div className="grid gap-2">
-      <Label htmlFor="message">Message</Label>
-      <Textarea id="message" placeholder="Type your message here." />
+    <div className="grid w-full gap-1.5">
+      <Label htmlFor="message">Your message</Label>
+      <Textarea placeholder="Type your message here." id="message" />
     </div>
   )
 }

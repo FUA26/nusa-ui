@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { MinusIcon, PlusIcon } from "lucide-react"
@@ -35,36 +35,46 @@ function NumberInput({
   )
   const isControlled = controlledValue !== undefined
   const value = isControlled ? controlledValue : internalValue
+
   const updateValue = React.useCallback(
     (newValue: number | undefined) => {
       if (newValue !== undefined) {
         if (min !== undefined && newValue < min) newValue = min
         if (max !== undefined && newValue > max) newValue = max
       }
-      if (!isControlled) setInternalValue(newValue)
+      if (!isControlled) {
+        setInternalValue(newValue)
+      }
       onChange?.(newValue)
     },
     [isControlled, onChange, min, max]
   )
-  const increment = React.useCallback(
-    () => updateValue((value ?? min ?? 0) + step),
-    [value, min, step, updateValue]
-  )
-  const decrement = React.useCallback(
-    () => updateValue((value ?? max ?? 0) - step),
-    [value, max, step, updateValue]
-  )
+
+  const increment = React.useCallback(() => {
+    const current = value ?? min ?? 0
+    updateValue(current + step)
+  }, [value, min, step, updateValue])
+
+  const decrement = React.useCallback(() => {
+    const current = value ?? max ?? 0
+    updateValue(current - step)
+  }, [value, max, step, updateValue])
+
   const handleInputChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = e.target.value
-      if (inputValue === "" && allowEmpty) updateValue(undefined)
-      else {
+      if (inputValue === "" && allowEmpty) {
+        updateValue(undefined)
+      } else {
         const num = parseFloat(inputValue)
-        if (!isNaN(num)) updateValue(num)
+        if (!isNaN(num)) {
+          updateValue(num)
+        }
       }
     },
     [allowEmpty, updateValue]
   )
+
   const handleKeyDown = React.useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "ArrowUp") {
@@ -77,8 +87,10 @@ function NumberInput({
     },
     [increment, decrement]
   )
+
   const canDecrement = min === undefined || (value ?? 0) > min
   const canIncrement = max === undefined || (value ?? 0) < max
+
   return (
     <div
       data-slot="number-input"

@@ -1,4 +1,4 @@
-import { Button } from "@/registry/ui/button"
+﻿import { Button } from "@/registry/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -13,16 +13,15 @@ export default function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Open dialog</Button>
+        <Button variant="outline">Open Dialog</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Dialog title</DialogTitle>
-          <DialogDescription>Short supporting description.</DialogDescription>
+          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogDescription>This action cannot be undone.</DialogDescription>
         </DialogHeader>
-        <DialogFooter showCloseButton>
-          <Button variant="outline">Cancel</Button>
-          <Button>Continue</Button>
+        <DialogFooter>
+          <Button type="submit">Confirm</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

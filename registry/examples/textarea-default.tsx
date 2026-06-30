@@ -1,4 +1,4 @@
-import { Textarea } from "@/registry/ui/textarea"
+﻿import { Textarea } from "@/registry/ui/textarea"
 
 export default function TextareaDefault() {
   return <Textarea placeholder="Type your message here." />

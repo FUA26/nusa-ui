@@ -1,8 +1,8 @@
-import * as React from "react"
+﻿import * as React from "react"
 import { cva } from "class-variance-authority"
 import { TrendingDown, TrendingUp } from "lucide-react"
 
-import { cn } from "@/registry/lib/utils"
+import { cn } from "@/lib/utils"
 
 const trendVariants = cva(
   "inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-xs font-medium",
@@ -14,9 +14,27 @@ const trendVariants = cva(
         neutral: "bg-muted text-muted-foreground",
       },
     },
-    defaultVariants: { direction: "neutral" },
+    defaultVariants: {
+      direction: "neutral",
+    },
   }
 )
+
+interface StatCardProps extends React.ComponentProps<"div"> {
+  /** The main metric value to display */
+  value: string | number
+  /** Label describing the metric */
+  label: string
+  /** Optional icon to display */
+  icon?: React.ReactNode
+  /** Trend percentage (positive = up, negative = down) */
+  trend?: number
+  /** Text to display after trend percentage */
+  trendLabel?: string
+  /** Additional description text */
+  description?: string
+}
+
 function StatCard({
   className,
   value,
@@ -26,16 +44,10 @@ function StatCard({
   trendLabel = "vs last period",
   description,
   ...props
-}: React.ComponentProps<"div"> & {
-  value: string | number
-  label: string
-  icon?: React.ReactNode
-  trend?: number
-  trendLabel?: string
-  description?: string
-}) {
+}: StatCardProps) {
   const trendDirection =
     trend === undefined || trend === 0 ? "neutral" : trend > 0 ? "up" : "down"
+
   return (
     <div
       data-slot="stat-card"
@@ -58,6 +70,7 @@ function StatCard({
           </span>
         )}
       </div>
+
       <div className="flex flex-col gap-1">
         <span
           data-slot="stat-card-value"
@@ -65,6 +78,7 @@ function StatCard({
         >
           {value}
         </span>
+
         {trend !== undefined && (
           <div className="flex items-center gap-2">
             <span
@@ -84,6 +98,7 @@ function StatCard({
             </span>
           </div>
         )}
+
         {description && (
           <span
             data-slot="stat-card-description"
@@ -96,11 +111,17 @@ function StatCard({
     </div>
   )
 }
+
+interface StatCardGroupProps extends React.ComponentProps<"div"> {
+  /** Number of columns on different breakpoints */
+  columns?: 1 | 2 | 3 | 4
+}
+
 function StatCardGroup({
   className,
   columns = 4,
   ...props
-}: React.ComponentProps<"div"> & { columns?: 1 | 2 | 3 | 4 }) {
+}: StatCardGroupProps) {
   return (
     <div
       data-slot="stat-card-group"
@@ -116,4 +137,6 @@ function StatCardGroup({
     />
   )
 }
+
 export { StatCard, StatCardGroup, trendVariants }
+export type { StatCardProps, StatCardGroupProps }

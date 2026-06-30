@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useMemo } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -20,6 +20,7 @@ function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
     />
   )
 }
+
 function FieldLegend({
   className,
   variant = "legend",
@@ -39,6 +40,7 @@ function FieldLegend({
     />
   )
 }
+
 function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -51,6 +53,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
     />
   )
 }
+
 const fieldVariants = cva(
   "group/field flex w-full gap-3 data-[invalid=true]:text-destructive",
   {
@@ -69,9 +72,12 @@ const fieldVariants = cva(
         ],
       },
     },
-    defaultVariants: { orientation: "vertical" },
+    defaultVariants: {
+      orientation: "vertical",
+    },
   }
 )
+
 function Field({
   className,
   orientation = "vertical",
@@ -87,6 +93,7 @@ function Field({
     />
   )
 }
+
 function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -99,6 +106,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
     />
   )
 }
+
 function FieldLabel({
   className,
   ...props
@@ -116,6 +124,7 @@ function FieldLabel({
     />
   )
 }
+
 function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -128,6 +137,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
     />
   )
 }
+
 function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
@@ -142,11 +152,14 @@ function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
     />
   )
 }
+
 function FieldSeparator({
   children,
   className,
   ...props
-}: React.ComponentProps<"div"> & { children?: React.ReactNode }) {
+}: React.ComponentProps<"div"> & {
+  children?: React.ReactNode
+}) {
   return (
     <div
       data-slot="field-separator"
@@ -169,6 +182,7 @@ function FieldSeparator({
     </div>
   )
 }
+
 function FieldError({
   className,
   children,
@@ -178,12 +192,22 @@ function FieldError({
   errors?: Array<{ message?: string } | undefined>
 }) {
   const content = useMemo(() => {
-    if (children) return children
-    if (!errors?.length) return null
+    if (children) {
+      return children
+    }
+
+    if (!errors?.length) {
+      return null
+    }
+
     const uniqueErrors = [
       ...new Map(errors.map((error) => [error?.message, error])).values(),
     ]
-    if (uniqueErrors?.length == 1) return uniqueErrors[0]?.message
+
+    if (uniqueErrors?.length == 1) {
+      return uniqueErrors[0]?.message
+    }
+
     return (
       <ul className="ml-4 flex list-disc flex-col gap-1">
         {uniqueErrors.map(
@@ -193,7 +217,11 @@ function FieldError({
       </ul>
     )
   }, [children, errors])
-  if (!content) return null
+
+  if (!content) {
+    return null
+  }
+
   return (
     <div
       role="alert"
@@ -205,6 +233,7 @@ function FieldError({
     </div>
   )
 }
+
 export {
   Field,
   FieldLabel,

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { CheckIcon, CopyIcon } from "lucide-react"
@@ -14,6 +14,7 @@ interface CopyButtonProps extends Omit<
   onCopy?: () => void
   timeout?: number
 }
+
 function CopyButton({
   value,
   onCopy,
@@ -25,6 +26,7 @@ function CopyButton({
   ...props
 }: CopyButtonProps) {
   const [copied, setCopied] = React.useState(false)
+
   const handleCopy = React.useCallback(async () => {
     try {
       await navigator.clipboard.writeText(value)
@@ -35,6 +37,7 @@ function CopyButton({
       console.error("Failed to copy:", err)
     }
   }, [value, onCopy, timeout])
+
   return (
     <Button
       type="button"
@@ -64,5 +67,6 @@ function CopyButton({
     </Button>
   )
 }
+
 export { CopyButton }
 export type { CopyButtonProps }

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { XIcon } from "lucide-react"
@@ -47,6 +47,7 @@ function TagInput({
   const isControlled = controlledValue !== undefined
   const tags = isControlled ? controlledValue : internalValue
 
+  // Filter suggestions based on input and already selected tags
   const filteredSuggestions = React.useMemo(() => {
     if (!inputValue.trim()) return []
     const search = inputValue.toLowerCase()
@@ -59,7 +60,9 @@ function TagInput({
 
   const updateTags = React.useCallback(
     (newTags: string[]) => {
-      if (!isControlled) setInternalValue(newTags)
+      if (!isControlled) {
+        setInternalValue(newTags)
+      }
       onChange?.(newTags)
     },
     [isControlled, onChange]
@@ -91,6 +94,8 @@ function TagInput({
   const handleInputChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value
+
+      // Check if delimiter is in the input
       if (
         delimiter instanceof RegExp
           ? delimiter.test(value)
@@ -98,8 +103,9 @@ function TagInput({
       ) {
         const parts = value.split(delimiter)
         parts.forEach((part, index) => {
-          if (index < parts.length - 1) addTag(part)
-          else {
+          if (index < parts.length - 1) {
+            addTag(part)
+          } else {
             setInputValue(part)
             setIsOpen(part.trim().length > 0)
           }
@@ -125,9 +131,11 @@ function TagInput({
         setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : 0))
       } else if (e.key === "Enter") {
         e.preventDefault()
-        if (filteredSuggestions.length > 0 && isOpen)
+        if (filteredSuggestions.length > 0 && isOpen) {
           addTag(filteredSuggestions[highlightedIndex])
-        else if (allowCustom) addTag(inputValue)
+        } else if (allowCustom) {
+          addTag(inputValue)
+        }
       } else if (e.key === "Escape") {
         setIsOpen(false)
       } else if (e.key === "Backspace" && !inputValue && tags.length > 0) {
@@ -206,6 +214,8 @@ function TagInput({
           aria-autocomplete="list"
         />
       </div>
+
+      {/* Suggestions dropdown */}
       {isOpen && filteredSuggestions.length > 0 && (
         <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
           {filteredSuggestions.map((suggestion, index) => (

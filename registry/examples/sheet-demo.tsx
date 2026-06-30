@@ -1,8 +1,11 @@
-import { Button } from "@/registry/ui/button"
+﻿import { Button } from "@/registry/ui/button"
+import { Input } from "@/registry/ui/input"
+import { Label } from "@/registry/ui/label"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -16,9 +19,24 @@ export default function SheetDemo() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Sheet title</SheetTitle>
-          <SheetDescription>Sheet description</SheetDescription>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>
+            Make changes to your profile here. Click save when you&apos;re done.
+          </SheetDescription>
         </SheetHeader>
+        <div className="grid gap-4 px-4">
+          <div className="grid gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" defaultValue="Pedro Duarte" />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" defaultValue="@peduarte" />
+          </div>
+        </div>
+        <SheetFooter>
+          <Button type="submit">Save changes</Button>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

@@ -1,5 +1,5 @@
-import { Badge } from "@/registry/ui/badge"
+﻿import { Badge } from "@/registry/ui/badge"
 
 export default function BadgeDefault() {
-  return <Badge>Badge</Badge>
+  return <Badge variant="default">Default</Badge>
 }

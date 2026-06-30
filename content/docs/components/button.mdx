@@ -1,9 +1,10 @@
 ﻿---
 title: Button
 description: Displays a button or a component that looks like a button.
+
 links:
-  doc: https://ui.shadcn.com/docs/components/button
-  api: https://www.radix-ui.com/primitives/docs/utilities/slot
+  doc: https://www.radix-ui.com/primitives/docs/utilities/slot
+  api: https://www.radix-ui.com/primitives/docs/utilities/slot#api-reference
 ---
 
 <ComponentPreview name="button-demo" />
@@ -11,41 +12,50 @@ links:
 ## Installation
 
 <CodeTabs>
-  <TabsList>
-    <TabsTrigger value="cli">CLI</TabsTrigger>
-    <TabsTrigger value="manual">Manual</TabsTrigger>
-  </TabsList>
-  <TabsPanel value="cli">
+
+<TabsList variant="underline">
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsPanel value="cli">
 
 ```bash
 npx shadcn@latest add https://nusa-ui.vercel.app/r/button.json
 ```
 
-  </TabsPanel>
-  <TabsPanel value="manual">
-    <Steps>
-      <Step>
-        Install <code>@radix-ui/react-slot</code>
-      </Step>
-      <ComponentSource name="button" title="components/ui/button.tsx" collapsible={false} />
-      <Step>Update your import paths</Step>
+</TabsPanel>
 
-```tsx
-import { Button } from "@/components/ui/button"
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-slot
 ```
 
-    </Steps>
-  </TabsPanel>
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="button" title="components/ui/button.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
 </CodeTabs>
 
 ## Usage
 
 ```tsx
 import { Button } from "@/components/ui/button"
+```
 
-export function ButtonExample() {
-  return <Button variant="outline">Button</Button>
-}
+```tsx
+<Button variant="outline">Button</Button>
 ```
 
 ## Examples
@@ -84,8 +94,11 @@ export function ButtonExample() {
 
 ## API Reference
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `"default" | "outline" | "secondary" | "ghost" | "destructive" | "link"` | `"default"` | Visual style of the button. |
-| `size` | `"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"` | `"default"` | Button sizing preset. |
-| `asChild` | `boolean` | `false` | Renders the button as a child element. |
+### Button
+
+| Prop      | Type                                                                          | Default     |
+| --------- | ----------------------------------------------------------------------------- | ----------- |
+| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
+| `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |
+| `asChild` | `boolean`                                                                     | `false`     |
+

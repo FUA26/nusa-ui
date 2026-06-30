@@ -1,10 +1,15 @@
+﻿import { Terminal } from "lucide-react"
+
 import { Alert, AlertDescription, AlertTitle } from "@/registry/ui/alert"
 
 export default function AlertDemo() {
   return (
     <Alert>
-      <AlertTitle>Heads up</AlertTitle>
-      <AlertDescription>This is a neutral alert.</AlertDescription>
+      <Terminal className="size-4" />
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the CLI.
+      </AlertDescription>
     </Alert>
   )
 }

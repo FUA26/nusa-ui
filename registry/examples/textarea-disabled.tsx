@@ -1,5 +1,5 @@
-import { Textarea } from "@/registry/ui/textarea"
+﻿import { Textarea } from "@/registry/ui/textarea"
 
 export default function TextareaDisabled() {
-  return <Textarea placeholder="Disabled textarea" disabled />
+  return <Textarea placeholder="Type your message here." disabled />
 }
