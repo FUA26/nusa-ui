@@ -13,8 +13,12 @@
     "input",
     "label",
     "progress",
+    "scroll-area",
     "select",
     "separator",
+    "sheet",
+    "slider",
+    "sonner",
     "switch",
     "textarea",
     "tooltip"
