@@ -664,6 +664,32 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Displays a feature-rich table with sorting, filtering, and pagination.",
+      "dependencies": ["@tanstack/react-table", "lucide-react"],
+      "registryDependencies": [
+        "https://nusa-ui.vercel.app/r/utils.json",
+        "https://nusa-ui.vercel.app/r/badge.json",
+        "https://nusa-ui.vercel.app/r/button.json",
+        "https://nusa-ui.vercel.app/r/command.json",
+        "https://nusa-ui.vercel.app/r/dropdown-menu.json",
+        "https://nusa-ui.vercel.app/r/input.json",
+        "https://nusa-ui.vercel.app/r/popover.json",
+        "https://nusa-ui.vercel.app/r/select.json",
+        "https://nusa-ui.vercel.app/r/separator.json",
+        "https://nusa-ui.vercel.app/r/skeleton.json",
+        "https://nusa-ui.vercel.app/r/table.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

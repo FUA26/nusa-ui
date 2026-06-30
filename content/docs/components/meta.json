@@ -43,6 +43,7 @@
     "tag-input",
     "form",
     "chart",
-    "sidebar"
+    "sidebar",
+    "data-table"
   ]
 }
