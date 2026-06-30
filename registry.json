@@ -624,6 +624,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Displays chart primitives built on Recharts.",
+      "dependencies": ["recharts"],
+      "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
+      "files": [
+        {
+          "path": "registry/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

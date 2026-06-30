@@ -41,6 +41,7 @@
     "field",
     "stat-card",
     "tag-input",
-    "form"
+    "form",
+    "chart"
   ]
 }
