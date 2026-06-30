@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "title": "Aspect Ratio",
+  "description": "Maintains a fixed width-to-height ratio.",
+  "dependencies": ["@radix-ui/react-aspect-ratio"],
+  "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
+  "files": [
+    {
+      "path": "registry/ui/aspect-ratio.tsx",
+      "content": "\"use client\"\n\nimport * as AspectRatioPrimitive from \"@radix-ui/react-aspect-ratio\"\n\nfunction AspectRatio({ ...props }: React.ComponentProps<typeof AspectRatioPrimitive.Root>) { return <AspectRatioPrimitive.Root data-slot=\"aspect-ratio\" {...props} /> }\n\nexport { AspectRatio }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

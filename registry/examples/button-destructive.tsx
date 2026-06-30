@@ -1,5 +1,5 @@
-﻿import { Button } from "@/components/ui/button"
+import { Button } from "@/registry/ui/button"
 
-export function ButtonDestructive() {
+export default function ButtonDestructive() {
   return <Button variant="destructive">Destructive</Button>
 }

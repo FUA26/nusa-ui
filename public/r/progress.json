@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "title": "Progress",
+  "description": "Displays the completion progress of a task.",
+  "dependencies": ["registry/ui/progress.tsx"],
+  "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
+  "files": [
+    {
+      "path": "registry/ui/progress.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\"\n\nimport { cn } from \"@/registry/lib/utils\"\n\nfunction Progress({ className, value, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n  return <ProgressPrimitive.Root data-slot=\"progress\" className={cn(\"bg-primary/20 relative h-2 w-full overflow-hidden rounded-full\", className)} {...props}><ProgressPrimitive.Indicator data-slot=\"progress-indicator\" className=\"bg-primary h-full w-full flex-1 transition-all\" style={{ transform: `translateX(-${100 - (value || 0)}%)` }} /></ProgressPrimitive.Root>\n}\n\nexport { Progress }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
