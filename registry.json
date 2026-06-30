@@ -638,6 +638,32 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Provides a responsive sidebar with mobile support.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://nusa-ui.vercel.app/r/utils.json",
+        "https://nusa-ui.vercel.app/r/button.json",
+        "https://nusa-ui.vercel.app/r/input.json",
+        "https://nusa-ui.vercel.app/r/separator.json",
+        "https://nusa-ui.vercel.app/r/sheet.json",
+        "https://nusa-ui.vercel.app/r/skeleton.json",
+        "https://nusa-ui.vercel.app/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
