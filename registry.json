@@ -558,6 +558,72 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A set of form field building blocks.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [
+        "https://nusa-ui.vercel.app/r/utils.json",
+        "https://nusa-ui.vercel.app/r/label.json",
+        "https://nusa-ui.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:ui",
+      "title": "Stat Card",
+      "description": "Displays a compact metric card.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
+      "files": [
+        {
+          "path": "registry/ui/stat-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "Lets users enter and manage tags.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "https://nusa-ui.vercel.app/r/utils.json",
+        "https://nusa-ui.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tag-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "Provides form field helpers and messaging.",
+      "dependencies": ["@radix-ui/react-slot"],
+      "registryDependencies": [
+        "https://nusa-ui.vercel.app/r/utils.json",
+        "https://nusa-ui.vercel.app/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
