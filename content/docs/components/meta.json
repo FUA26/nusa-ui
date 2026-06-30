@@ -31,6 +31,12 @@
     "textarea",
     "toggle",
     "toggle-group",
-    "tooltip"
+    "tooltip",
+    "calendar",
+    "date-picker",
+    "input-group",
+    "combobox",
+    "input-otp",
+    "number-input"
   ]
 }
