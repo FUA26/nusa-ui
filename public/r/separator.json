@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "Visually or semantically separates content.",
+  "dependencies": ["registry/ui/separator.tsx"],
+  "registryDependencies": ["https://nusa-ui.vercel.app/r/utils.json"],
+  "files": [
+    {
+      "path": "registry/ui/separator.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SeparatorPrimitive from \"@radix-ui/react-separator\"\n\nimport { cn } from \"@/registry/lib/utils\"\n\nfunction Separator({ className, orientation = \"horizontal\", decorative = true, ...props }: React.ComponentProps<typeof SeparatorPrimitive.Root>) {\n  return <SeparatorPrimitive.Root data-slot=\"separator\" decorative={decorative} orientation={orientation} className={cn(\"bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px\", className)} {...props} />\n}\n\nexport { Separator }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

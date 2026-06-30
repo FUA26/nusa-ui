@@ -8,11 +8,15 @@
     "button",
     "card",
     "checkbox",
+    "collapsible",
     "dialog",
     "input",
     "label",
+    "progress",
     "select",
+    "separator",
     "switch",
-    "textarea"
+    "textarea",
+    "tooltip"
   ]
 }
