@@ -3,6 +3,7 @@
   "pages": [
     "accordion",
     "alert",
+    "aspect-ratio",
     "avatar",
     "badge",
     "button",
@@ -13,6 +14,7 @@
     "input",
     "label",
     "progress",
+    "radio-group",
     "scroll-area",
     "select",
     "separator",
@@ -21,6 +23,8 @@
     "sonner",
     "switch",
     "textarea",
+    "toggle",
+    "toggle-group",
     "tooltip"
   ]
 }
